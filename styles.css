@@ -1,0 +1,276 @@
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Darker Grotesque", sans-serif;
+  background-image: radial-gradient(#003545, #00454a);
+  min-height: 100vh;
+  color: white;
+  font-size: 1.5rem;
+  cursor: default;
+  max-width: 100vw;
+  margin: auto;
+  transition: 0.3s ease;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3vh;
+}
+
+.fas {
+  padding: 0.4rem;
+}
+
+.header {
+  padding: 3vh 0 2vh 0;
+  text-align: center;
+  background-color: white;
+  border-radius: 0 0px 250px 0px;
+}
+
+.header h1 {
+  font-family: "Rock Salt", cursive;
+  font-size: 2.5rem;
+  position: absolute;
+  color: rgba(59, 59, 59, 0.863);
+  left: 2vw;
+  top: 2vh;
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+  padding: 2vh 0;
+  filter: drop-shadow(1px 5px 2px rgb(194, 194, 194));
+}
+
+#todo-text {
+  font-family: "Darker Grotesque", sans-serif;
+  font-size: 1.5rem;
+  padding: 1rem;
+  width: 40vw;
+}
+
+#todo-text::placeholder {
+  font-family: "Rock Salt", cursive;
+}
+
+#todo-text {
+  background-color: rgba(255, 255, 255, 0.616);
+  border-radius: 5px 0 0 5px;
+}
+
+#todo-text:focus {
+  background-color: white;
+  outline: none;
+}
+
+#todo-submit {
+  background-color: rgba(255, 255, 255, 0.616);
+  cursor: pointer;
+  color: #ed6363;
+  border-radius: 0 5px 5px 0;
+}
+
+#todo-submit:hover {
+  background-color: white;
+  color: white;
+  background-color: #ed6363;
+  transition: all 0.5s ease-out;
+}
+
+#todo-submit:focus {
+  outline: none;
+  transition: all 0.5s ease-out;
+}
+
+.slider-container {
+  width: 80%;
+  margin: auto;
+  padding: 0.5rem 0 1rem 0;
+}
+
+.slider-headers {
+  display: flex;
+  border-radius: 5px;
+  justify-content: space-between;
+  width: 50%;
+  margin: auto;
+}
+
+.slider-headers p {
+  flex: 1;
+  padding: 0.25rem 0;
+  font-size: 1.25rem;
+  color: rgb(59, 59, 59);
+  font-family: "Darker Grotesque", sans-serif;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40%;
+  height: 10px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.9;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 5px;
+  width: 20px;
+  height: 20px;
+  background: #ed6363;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  border-radius: 5px;
+  width: 20px;
+  height: 20px;
+  background: #ed6363;
+  cursor: pointer;
+}
+
+.todo {
+  display: flex;
+  list-style: none;
+  background-color: white;
+  border-radius: 5px;
+  position: relative;
+  right: 20px;
+  transition: all 0.5s ease;
+  margin: 0.25rem 0;
+}
+
+.deleted {
+  transform: translateX(15rem);
+  background-color: rgb(247, 78, 78);
+  opacity: 0;
+}
+
+.todo-list {
+  min-width: 60vw;
+}
+
+.todo-text {
+  color: rgb(87, 87, 87);
+  font-size: 1.75rem;
+  padding: 0.5rem;
+  flex: 1;
+}
+
+.complete,
+.trash {
+  cursor: pointer;
+  color: #ed6363;
+}
+
+.complete {
+  border-radius: 0 5px 5px 0;
+}
+
+.complete-icn,
+.trash-icn {
+  pointer-events: none;
+}
+
+.complete:hover {
+  background-color: rgb(122, 231, 122);
+  color: white;
+  transition: all 0.6s ease;
+}
+
+.trash:hover {
+  background-color: rgb(247, 78, 78);
+  color: white;
+  transition: all 0.6s ease;
+}
+
+.complete:focus,
+.trash:focus {
+  outline: none;
+  transition: all 0.6s ease;
+}
+
+.finished {
+  text-decoration: line-through;
+  color: rgb(87, 87, 87);
+  opacity: 0.7;
+  background-color: rgb(122, 231, 122);
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 1057px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .slider-headers p {
+    font-size: 1.3rem;
+  }
+
+  .slider-container {
+    width: 100%;
+  }
+
+  #todo-text::placeholder {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 790px) {
+  .header {
+    padding: 0 0;
+    border-radius: 0 0 125px 0;
+  }
+
+  .header h1 {
+    position: static;
+    text-align: left;
+    padding-left: 1rem;
+  }
+  .input {
+    padding: 0 0;
+  }
+
+  #todo-text {
+    font-size: 1.5rem;
+    width: 75vw;
+  }
+  .todo-list {
+    min-width: 90vw;
+  }
+
+  .slider-container {
+    width: 100%;
+    padding: 0.75rem 0 1rem 0;
+  }
+  .slider-headers {
+    width: 80%;
+  }
+
+  .slider {
+    width: 55%;
+  }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Much Todo</title>
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque&family=Rock+Salt&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/92a286bacb.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="header">
+      <h1>much todo</h1>
+      <div class="input">
+        <input type="text" name="" id="todo-text" autocomplete="off" placeholder="Enter  todo..." />
+        <button id="todo-submit" type="submit"><i class="fas fa-2x fa-plus"></i></button>
+      </div>
+      <div class="slider-container">
+        <div class="slider-headers">
+          <p>Working On</p>
+          <p>All</p>
+          <p>Done</p>
+        </div>
+        <input type="range" min="1" max="3" value="2" class="slider" id="myRange" />
+      </div>
+    </div>
+    <div class="app">
+      <div class="todo-container">
+        <ul class="todo-list"></ul>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
