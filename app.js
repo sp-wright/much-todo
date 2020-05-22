@@ -4,6 +4,7 @@ const todoInput = document.querySelector("#todo-text");
 const todoBtn = document.querySelector("#todo-submit");
 const todoList = document.querySelector(".todo-list");
 const filter = document.querySelector(".slider");
+const clearBtn = document.querySelector(".clear-done");
 
 // Event Listeners
 
@@ -32,6 +33,7 @@ todoList.addEventListener("click", deleteTodo);
 filter.addEventListener("mouseup", filterResults);
 filter.addEventListener("touchend", filterResults);
 document.addEventListener("DOMContentLoaded", printLocal);
+clearBtn.addEventListener("click", deleteComplete);
 
 // FUNCTIONS
 
@@ -63,18 +65,29 @@ function deleteTodo(e) {
   let target = e.target;
   if (e.srcElement.classList[0] === "trash") {
     target.parentElement.classList.add("deleted");
-    deleteLocal(e.target.parentElement.firstChild.innerText);
+    deleteLocal(e.target.innerText);
     e.target.parentElement.addEventListener("transitionend", function () {
       target.parentElement.remove();
     });
   } else if (e.srcElement.classList[0] === "complete") {
     target.parentElement.classList.toggle("finished");
-    if (target.parentElement.classList.contains("finished")) {
-      var audio = new Audio("sounds/kid-cheer.mp3");
-      audio.play();
-    } else {
-      var audio = new Audio("sounds/aww.mp3");
-      audio.play();
+    // if (target.parentElement.classList.contains("finished")) {
+    //   var audio = new Audio("sounds/kid-cheer.mp3");
+    //   audio.play();
+    // } else {
+    //   var audio = new Audio("sounds/aww.mp3");
+    //   audio.play();
+    // }
+  }
+}
+
+function deleteComplete() {
+  let newList = todoList.children;
+  for (i = newList.length - 1; i >= 0; i--) {
+    if (newList[i].classList.contains("finished")) {
+      newList[i].classList.add("deleted");
+      deleteLocal(newList[i].innerText);
+      newList[i].remove();
     }
   }
 }
@@ -130,7 +143,6 @@ function deleteLocal(todo) {
 
 function printLocal() {
   let todos = localCheck();
-  console.log(todos[1]);
   for (i = 0; i < todos.length; i++) {
     const todoDiv = document.createElement("div");
     todoDiv.classList.add("todo");

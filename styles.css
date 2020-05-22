@@ -28,6 +28,13 @@ body {
   padding: 0.4rem;
 }
 
+button {
+  font-family: "Darker Grotesque", sans-serif;
+  cursor: pointer;
+}
+
+/************************************* HEADER *************************************/
+
 .header {
   padding: 3vh 0 2vh 0;
   text-align: center;
@@ -39,10 +46,12 @@ body {
   font-family: "Rock Salt", cursive;
   font-size: 2.5rem;
   position: absolute;
-  color: rgba(59, 59, 59, 0.863);
+  color: #ed6363;
   left: 2vw;
   top: 2vh;
 }
+
+/***************** TEXT INPUT ****************/
 
 .input {
   display: flex;
@@ -90,6 +99,8 @@ body {
   outline: none;
   transition: all 0.5s ease-out;
 }
+
+/***************** FILTER SLIDER ****************/
 
 .slider-container {
   width: 80%;
@@ -149,6 +160,29 @@ body {
   cursor: pointer;
 }
 
+/***************** CLEAR DONE BTN ****************/
+
+.clear-done {
+  font-size: 1rem;
+  background-color: #ed6363;
+  color: white;
+  border-radius: 5px;
+  padding: 0.5rem;
+  border: solid 1px #ed6363;
+}
+
+.clear-done:hover {
+  color: #ed6363;
+  background-color: white;
+  border: solid 1px #ed6363;
+}
+
+.clear-done:focus {
+  outline: none;
+}
+
+/************************************* TODO *************************************/
+
 .todo {
   display: flex;
   list-style: none;
@@ -161,7 +195,6 @@ body {
 }
 
 .deleted {
-  transform: translateX(15rem);
   background-color: rgb(247, 78, 78);
   opacity: 0;
 }
@@ -210,6 +243,8 @@ body {
   transition: all 0.6s ease;
 }
 
+/***************** STATES ****************/
+
 .finished {
   text-decoration: line-through;
   color: rgb(87, 87, 87);
@@ -220,6 +255,8 @@ body {
 .hidden {
   display: none;
 }
+
+/************************************* MEDIA *************************************/
 
 @media (max-width: 1057px) {
   .header h1 {
@@ -252,6 +289,10 @@ body {
   }
   .input {
     padding: 0 0;
+  }
+
+  .clear-done {
+    margin: 0 0 1rem 0;
   }
 
   #todo-text {
